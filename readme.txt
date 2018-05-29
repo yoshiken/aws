@@ -25,7 +25,7 @@ AWSはSOAP/WSDLがサポートされており、2つのツールが提供され�
 
 どちらのツールも標準Adaのenumerations,character,records,arraysといった型に対応しています
 
-SOAP実装はhttp://validator.soapware.org/で検証されています。
+SOAP実装は http://validator.soapware.org/ で検証されています。
 現在、オンラインサービスとして利用できませんが、実装はApache/AXIS SOAPとして検証されており
 相互運用は保証されています。
 一部のユーザーは、AWS/SOAP,.NET,gSOAPにおいて問題なく機能したという報告をしています。
