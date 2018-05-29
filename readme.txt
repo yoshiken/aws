@@ -6,6 +6,8 @@ Authors:
    Dmitriy Anisimkov
    Pascal Obry
 
+Translator:
+   Kenta Yoshida
 
 AWSはAda Web Serverの略です。これはあらゆるアプリケーションに組み込むことができる、
 小さいがパワフルなHTTP componentです。つまり、Webサーバーを立てること無く、標準の
