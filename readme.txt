@@ -7,110 +7,93 @@ Authors:
    Pascal Obry
 
 
-AWS stand for Ada Web Server. It is a small yet powerful HTTP component to
-embed in any applications. It means that you can communicate with your
-application using a standard Web browser and this without the need for a Web
-Server. AWS is fully developed in Ada with GNAT.
+AWSはAda Web Serverの略です。これはあらゆるアプリケーションに組み込むことができる、
+小さいがパワフルなHTTP componentです。つまり、Webサーバーを立てること無く、標準の
+webサーバーを使用してアプリケーションと通信できるということを意味しています。
+AWSはAda with GNATで開発されました。
 
-AWS support SOAP/WSDL, Server Push, HTTPS/SSL, client HTTP, hotplug
-modules...
+AWSはSOAP/WSDL, Server Push, HTTPS/SSL, client HTTP, hotplug , modules等様々な
+サポートをしています。
 
-AWS comes with SOAP/WSDL support, two tools are proposed:
+AWSはSOAP/WSDLがサポートされており、2つのツールが提供されています。
 
-   ada2wsdl   which generates a WSDL document from an Ada spec
+  ada2wsdl    Adaの言語仕様からWSDLドキュメントを生成します。
 
-   wsdl2aws   which generates stubs/skeletons AWS code from a WSDL document
+  wsdl2aws    WSDLドキュメントからAdaのstub及びSkeletonを生成します
 
-Both tools have mapping for standard Ada types but also supports Ada
-enumerations, character, records and arrays.
+どちらのツールも標準Adaのenumerations,character,records,arraysといった型に対応しています
 
-The SOAP implementation has been validated on http://validator.soapware.org/.
-This on-line service is not available anymore but the current implementation
-is validated against the Apache/AXIS SOAP implementation to ensure the
-interoperability. Some users have also reported to have used AWS/SOAP with
-.NET and gSOAP without trouble.
+SOAP実装はhttp://validator.soapware.org/で検証されています。
+現在、オンラインサービスとして利用できませんが、実装はApache/AXIS SOAPとして検証されており
+相互運用は保証されています。
+一部のユーザーは、AWS/SOAP,.NET,gSOAPにおいて問題なく機能したという報告をしています。
 
 
-Non upward compatible changes
------------------------------
+上位互換性が無い変更
+----------------
 
-Note that the changes listed below can introduce non upward compatibility.
-In such a case we try to give proper advice on how to change the code
-to work properly. Of course we try to avoid this as much as possible
-but we really prefer to have a clean API instead of keeping awkward
-implementations.
+以下に示す変更点は、上位互換により導入できない事に留意してください
+このようなケースの場合には、適切なコードのアドバイスを行います。もちろんこのような実装
+を避けようとはしますが、危険を孕むような実装をするのではなく、キレイなAPIを保つことを主とします。
 
 
-Obsolescent features
---------------------
+廃止予定
+-------
 
-In each new version we try to be upward compatible with previous
-version. This is really important, but in some cases it seems that a
-"redesign" of the API would be good in the long term. All obsolescent
-features will be listed in this section. Those features will be
-removed in the next version. Note that you can check usage of those
-features in your application by using the GNAT's -gnatwj option as we
-have tagged all obsolescent features with a pragma.
+それぞれの新しいバージョンでは、以前のバージョンと上位互換性を保ちます。
+互換性を保つこと自体は本当に重要ですが、APIの「再設計」が長期的には良いと思われる場合もあります。
+廃止予定化したすべての機能がこのセクションにリストされます。
+これらの機能は、次のバージョンでは削除されます。
+GNATの -gnatwj オプションを使用すると、アプリケーションですべての廃止予定機能を
+pragmaでタグ付けしたリストを表示できます
 
+ポイント
+------
 
-Pointers
---------
-
-AWS Home Page (sources and printable documentations in Postscript and PDF):
+AWS Home Page (PostscriptとPDFでソースと出力可能なドキュメント):
    http://libre.adacore.com/tools/aws
 
 Templates_Parser sources:
-   Templates_Parser module (sources and documentation) is provided with AWS
-   distribution.
+  Templates_Parser module (ソースコードとドキュメント) にはAWSが付属されて提供しています。
 
 GNU/Ada - GNAT
+  少なくとも、GNAT 2015 GPL EditionもしくはGNAT Pro 7.2が必要です
 
-   You need at least GNAT 2015 GPL Edition or GNAT Pro 7.2
+XML/Ada (オプション):
+  このライブラリは、AWS SOAP機能を使用する場合のみに必要です。
+  XML/Ada version 2.2.0.以上が必要です。
 
-   http://libre.adacore.com/tools/gnat-gpl-edition/
+  http://libre.adacore.com/
 
-XML/Ada (optional):
+OpenSSL(オプション）：
+  開発ライブラリを手動でインストールする必要があります。
 
-   You need this library only if you want to use AWS SOAP feature. You need
-   at least XML/Ada version 2.2.0.
+LibreSSL (オプション）：
+  開発ライブラリを手動でインストールする必要があります（> = 2.4.4）。
+  LibreSSLはOpenSSLと完全に互換性のある実装です。
+  OpenSSLのようにAWSを設定するだけです。
 
-   http://libre.adacore.com/
+GNUTLS (オプション)
+  開発ライブラリを手動でインストールする必要があります。
+  GNUTLSのバージョンが3.2.4以上必要です。
 
-OpenSSL (optional):
+OpenSSL (オプション):
+    UNIXまたはWin32のソース：
+       http://www.openldap.org/
+    Win32：
+       AWSバインディングはMicrosoft LDAPに動的ライブラリとして使用されます。
 
-   You need to install manually the development libraries.
+Windows Services API (オプション):
+Windows NT/2000サービスとしてrunmeデモを構築するには、SETI@Homeプロジェクトの
+Ted Dennisonが作成したサービスAPIをダウンロードする必要があります。
 
-LibreSSL (optional):
-
-   You need to install manually the development libraries (>= 2.4.4).
-   LibreSSL is an implementation fully compatible with OpenSSL, you
-   just have to configure AWS as with OpenSSL.
-
-GNUTLS (optional):
-
-   You need to install manually the development libraries. AWS needs at
-   least version 3.2.4 of GNUTLS.
-
-OpenLDAP library (optional) :
-
-   Sources for UNIX or Win32:
-      http://www.openldap.org/
-
-   Win32:
-      AWS binding will use to the Microsoft LDAP dynamic library.
-
-Windows Services API (optional):
-
-   To build the runme demo as a Windows NT/2000 services you must download
-   the services API made by Ted Dennison for his SETI@Home project.
-
-      http://www.telepath.com/~dennison/Ted/SETI/SETI_Service.html
+http://www.telepath.com/~dennison/Ted/SETI/SETI_Service.html
 
 
-Reporting bugs
---------------
+バグを報告
+---------
 
-You can report bugs to AdaCore: report@adacore.com
+AdaCoreにバグを報告できます: report@adacore.com
 
 
 Contributors
@@ -121,8 +104,5 @@ about AWS. In the early stage of the project this is very valuable.
 
 So thanks goes to Georg Bauhaus, Ted Dennison, Wiljan Derks, Sune Falck,
 David C. Hoos, Audran Le Baron, Thierry Lelegard, Nicolas Lesbats,
-Olivier Ramonat, Jean-Fran�ois Rameau, Maxim Reznik, Jean-Pierre Rosen,
+Olivier Ramonat, Jean-Fran�ois Rameau, Maxim Reznik, Jean-Pierre Rosen,
 Jerme Roussel, Ariane Sinibardy, Henrik Sundberg.
-
-
-Thanks to all who have reported bugs and have sent us patches.
