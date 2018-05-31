@@ -108,3 +108,6 @@ So thanks goes to Georg Bauhaus, Ted Dennison, Wiljan Derks, Sune Falck,
 David C. Hoos, Audran Le Baron, Thierry Lelegard, Nicolas Lesbats,
 Olivier Ramonat, Jean-Fran�ois Rameau, Maxim Reznik, Jean-Pierre Rosen,
 Jerme Roussel, Ariane Sinibardy, Henrik Sundberg.
+
+
+Thanks to all who have reported bugs and have sent us patches.
