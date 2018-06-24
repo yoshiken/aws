@@ -4,50 +4,42 @@
 Introduction
 ************
 
-`AWS` stand for *Ada Web Server*. It is an Ada implementation of the
-`HTTP/1.1` protocol as defined in the RFC-2616 from June 1999.
+`AWS` とは *Ada Web Server* の略称で、HTTP1.1プロトコルをAdaで実装しています。(RFC-2616に準拠)
 
-The goal is not to build a full Web server but more to make it possible
-to use a Web browser (like Internet Explorer, or Netscape Navigator) to
-control an Ada application. As we'll see later it is also possible to
-have two Ada programs exchange informations via the `HTTP` protocol. This
-is possible as `AWS` also implement the client side of the HTTP protocol.
+ゴールは完全なWeb serverの構築ではなく、webブラウザ(Internet Explorer や Netscape Navigator など)をしようしてAdaアプリケーションをコントロールすることです。
+後述するように、2つのAdaアプリケーションが `HTTP` プロトコルを介して情報を交換することが可能です。
+これはクライアント側も `AWS` でHTTPプロトコルを実装しているからです。
 
-Moreover with this library it is possible to have more than one server
-in a single application. It is then possible to export different kind
-of services by using different `HTTP` ports, or to have different ports
-for different services priority. Client which must be served with a
-very high priority can be assigned a specific port for example.
+さらにこのライブラリによって1つのアプリケーションに複数のサーバーを持つことができます。
+これはサービスによって異なる `HTTP` のポートを使用することができるからです。また、サービスの優先度によって異なるポートを持つことが可能です。
+例えば、特定のポートは優先度が高いサービスを割り当てるなどが可能です。
 
-As designed, `AWS` big difference with a standard `CGI` server
-is that there is only one executable. A `CGI` server has one
-executable for each request or so, this becomes a pain to build and
-to distribute when the project gets bigger. We will also see that it is
-easier with `AWS` to deal with session data.
+設計として、標準のCGIサーバーとの大きな違いは `AWS` には1つの実行ファイルしかありません。
+標準のCGIサーバーはリクエストごとに1つの実行ファイルを持ちますが、ビルドする際やプロジェクトが大きくなっていき配布する時に苦労してしまうからです。
+`AWS` がセッションデータを容易に扱えることが簡単だということもみればわかります。
 
-`AWS` support also `HTTPS` (secure `HTTP`) using
-`SSL`. This is based on either `OpenSSL` or `GNUTLS` two Open Source SSL
-implementations.
+`AWS` は `SSL` を用いた `HTTPS` (secure 'HTTP')もサポートしています。
+これは `OpenSSL` と `GNUTLS` を用いたオープンソースSSLに基づいています。
 
-Major supported features are:
+主なサポート機能 :
 
-* HTTP implementation
+* HTTP
 
-* HTTPS (Secure HTTP) implementation based on SSLv3
+* HTTS (Secure HTTP) SSLv3
 
-* Template Web pages (separate the code and the design)
+* テンプレートWebページ(コードとデザインの分離)
 
-* Web Services - SOAP based
+* Web Services (SOAP)
 
-* WSDL support (generate stub/skeleton from WSDL documents)
+* WSDL (WSDLドキュメントからstub/skeletonを生成できます)
 
-* Basic and Digest authentication
+* BASIC認証とDigest認証
 
-* Transparent session handling (server side)
+* Transparent session handling(serverサイド)
 
-* HTTP state management (client side cookies)
+* HTTP state management(クライアントサイド)
 
-* File upload
+* ファイルアップロード
 
 * Server push
 
@@ -55,8 +47,8 @@ Major supported features are:
 
 * LDAP (client API)
 
-* Embedded resources (full self dependant Web server)
+* Embedded resources (webサーバー依存)
 
-* Complete client API, including HTTPS
+* HTTPSを含むクライアントAPI
 
-* Web server activity log
+* webサーバーのアクティビティログ
